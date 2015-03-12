@@ -27,18 +27,20 @@ export PS1="\[\e[32;40m\][\u \[\e[33;40m\]\w$(__git_ps1 ' (%s)')] \[\e[0m\]"
 export TERM="xterm-color"
 unset COLORFGBG
 
-alias bashrc="vim ~/.bashrc"
+alias .vim="cd $HOME/.vim"
+alias bashrc="vim $HOME/.bashrc"
 alias de="deactivate"
 alias envs="env | sort"
 alias freeze="pip freeze"
 alias h="history"
+alias hs="homeshick"
 alias ipy="ipython"
 alias ls="ls -lhp"
 alias lsa="ls -a"
 alias psa="ps -a"
 alias py="python"
-alias s="source ~/.bashrc"
-alias vimrc="vim ~/.vimrc"
+alias s="source $HOME/.bashrc"
+alias vimrc="vim $HOME/.vimrc"
 
 alias u="cd .."
 alias u2="cd ../.."
@@ -66,5 +68,5 @@ _source /usr/local/bin/virtualenvwrapper.sh
 _source $HOME/.bashrc_local
 
 # Keep this line at the end.
-_source ~/.bash_prompt.sh
+_source $HOME/.bash_prompt.sh
 unset _source
