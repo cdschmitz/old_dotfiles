@@ -8,13 +8,7 @@ function ccp () {
 
     if [[ -a $file ]]; then
         local backup=$(dirname "$file")/_$(basename "$file")
-        if [[ -d $file ]]; then
-            cp -R $file $backup
-        elif [[ -f $file ]]; then
-            cp $file $backup
-        else
-            echo "Directories and normal files only."
-        fi
+        cp -R "$file" "$backup"
     else
         echo "$file does not exist."
     fi
@@ -69,6 +63,7 @@ alias gs="git status"
 _source $HOME/.homesick/repos/homeshick/homeshick.sh
 _source $HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash
 _source /usr/local/bin/virtualenvwrapper.sh
+_source $HOME/.bashrc_local
 
 # Keep this line at the end.
 _source ~/.bash_prompt.sh
