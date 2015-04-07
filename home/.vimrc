@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 filetype plugin indent on
 filetype indent on
 syntax on
@@ -19,10 +21,16 @@ match ExtraWhitespace /\s\+$/
 
 command DW %s/\s\+$//g
 
+" Window movement
 map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
+
+" MiniBufExpl
+nnoremap <silent> <Tab> :MBEbn<CR>
+nnoremap <silent> <S-Tab> :MBEbp<CR>
+
 nore ; :
 nore : ;
 ca qi qa!
@@ -30,10 +38,6 @@ vnoremap v <Esc>^v$h
 vnoremap <silent> <space> zf
 nnoremap Q <nop>
 nnoremap <silent> <space> za
-nnoremap <silent> <F3> :MBEOpen<CR>
-nnoremap <silent> <F4> :MBEClose<CR>
-nnoremap <silent> <Tab> :MBEbn<CR>
-nnoremap <silent> <S-Tab> :MBEbp<CR>
 inoremap jf <Esc>
 
 " Code folding
@@ -46,3 +50,6 @@ au BufRead,BufNewFile *.py,*pyw set nosmartindent
 " autocmd FileType python highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 " autocmd FileType python match OverLength /\%>79v.\+/
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+" Mustache abbreviations
+let g:mustache_abbreviations = 1
