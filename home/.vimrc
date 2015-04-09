@@ -53,3 +53,5 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Mustache abbreviations
 let g:mustache_abbreviations = 1
+
+let g:vim_json_syntax_concealcursor = 0

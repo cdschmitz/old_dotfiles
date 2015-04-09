@@ -23,22 +23,24 @@ _source $HOME/.git-prompt.sh
 
 export HISTIGNORE="&:cd:ls:gs:s"
 export LS_COLORS='di=36:ex=31:ln=35:or=41:mi=41:pi=93'
-export PS1="\[\e[32;40m\][\u \[\e[33;40m\]\w$(__git_ps1 ' (%s)')] \[\e[0m\]"
+export PS1="\[\e[32;40m\][\u@\h \[\e[33;40m\]\w$(__git_ps1 ' (%s)')] \[\e[0m\]"
 export TERM="xterm-color"
 unset COLORFGBG
 
 alias .vim="cd $HOME/.vim"
 alias bashrc="vim $HOME/.bashrc"
+alias bashrcl="vim $HOME/.bashrc_local"
 alias de="deactivate"
 alias envs="env | sort"
 alias freeze="pip freeze"
 alias h="history"
 alias hs="homeshick"
 alias ipy="ipython"
-alias ls="ls -GFlhp"
+alias ls="ls -Flhp"
 alias lsa="ls -a"
 alias psa="ps -a"
 alias py="python"
+alias pyserver="python -m SimpleHTTPServer"
 alias s="source $HOME/.bashrc"
 alias vimrc="vim $HOME/.vimrc"
 
