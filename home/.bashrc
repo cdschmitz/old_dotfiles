@@ -1,7 +1,11 @@
+# Exit immediately if shell is not interactive.
 [[ "$-" != *i* ]] && return
 
 set -o vi
 
+# Create a backup of whatever file is passed to this function, with an
+# underscore prepended to the name.  Directories are copied recursively.
+# TODO:  If its a dotfile, add the underscore after the dot.
 function ccp () {
     local file="$1"
     [[ -z $file ]] && echo "No argument provided." && return 1
@@ -14,16 +18,14 @@ function ccp () {
     fi
 }
 
+# Make sure a file exists before sourcing it.
 function _source () {
     [[ -f $1 ]] && source $1
 }
 
-_source $HOME/.git-completion.bash
-_source $HOME/.git-prompt.sh
-
 export HISTIGNORE="&:cd:ls:gs:s"
+export KERNEL=$(uname -s)
 export LS_COLORS='di=36:ex=31:ln=35:or=41:mi=41:pi=93'
-export PS1="\[\e[32;40m\][\u@\h \[\e[33;40m\]\w$(__git_ps1 ' (%s)')] \[\e[0m\]"
 export TERM="xterm-color"
 unset COLORFGBG
 
@@ -37,8 +39,7 @@ alias h="history"
 alias hs="homeshick"
 alias ipy="ipython"
 alias ls="ls -Flhp"
-alias lsa="ls -a"
-alias psa="ps -a"
+alias lsa="ls -A"
 alias py="python"
 alias pyserver="python -m SimpleHTTPServer"
 alias s="source $HOME/.bashrc"
@@ -50,6 +51,8 @@ alias u3="cd ../../.."
 alias u4="cd ../../../.."
 alias u5="cd ../../../../.."
 
+# Enable autocomplete for Git commands + other aliases.
+_source $HOME/.git-completion.bash
 alias ck="git checkout"
 alias cherry="git cherry -v"
 alias commit="git commit"
@@ -63,10 +66,26 @@ alias gdc="git diff --cached"
 alias grs="git remote show"
 alias grso="git remote show origin"
 alias gs="git status"
+alias gsl="git stash list"
 
+# Homeshick
 _source $HOME/.homesick/repos/homeshick/homeshick.sh
 _source $HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash
+
+# virtualenv
 _source /usr/local/bin/virtualenvwrapper.sh
+
+# Config is slightly different between Mac and Linux.
+os_specific_setup () {
+    if [[ $KERNEL = "Linux" ]]; then
+        alias ls="ls -BFlhp --color=auto --group-directories-first"
+    elif [[ $KERNEL = "Darwin" ]]; then
+        alias ls="ls -FGlhp"
+    fi
+}
+os_specific_setup
+
+# Override config on a per-machine basis if necessary.
 _source $HOME/.bashrc_local
 
 # Keep this line at the end.

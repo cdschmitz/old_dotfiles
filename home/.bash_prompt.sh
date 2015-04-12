@@ -116,9 +116,13 @@ function set_bash_prompt () {
     BRANCH=''
   fi
 
+  # Set username.  If on Linux, include hostname.
+  local USER="\u"
+  [[ $KERNEL = "Linux" ]] && USER="\u@\h"
+
   # Set the bash prompt variable.
   PS1="
-${PYTHON_VIRTUALENV}${GREEN}\u ${YELLOW}\w${COLOR_NONE} ${BRANCH}
+${PYTHON_VIRTUALENV}${GREEN}${USER} ${YELLOW}\w${COLOR_NONE} ${BRANCH}
 ${PROMPT_SYMBOL} "
 }
 

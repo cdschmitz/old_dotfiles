@@ -40,9 +40,13 @@ nnoremap Q <nop>
 nnoremap <silent> <space> za
 inoremap jf <Esc>
 
+" Javascript shortcuts
+inoremap cslg console.log();<Esc>hi
+inoremap db; debugger;
+
 " Code folding
-autocmd BufWrite *.* mkview
-autocmd BufRead *.* silent loadview
+" autocmd BufWrite *.* mkview
+" autocmd BufRead *.* silent loadview
 
 " Python
 au BufRead,BufNewFile *.py,*pyw set nosmartindent
