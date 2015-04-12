@@ -20,6 +20,8 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 command DW %s/\s\+$//g
+command MD5 .!md5 -q %
+command SHA .!shasum -a 256 %
 
 " Window movement
 map <C-k> <C-w><Up>
