@@ -43,8 +43,8 @@ nnoremap <silent> <space> za
 inoremap jf <Esc>
 
 " Javascript shortcuts
-inoremap cslg console.log();<Esc>hi
-inoremap db; debugger;
+autocmd FileType html,javascript inoremap cslg console.log();<Esc>hi
+autocmd FileType html,javascript inoremap db; debugger;
 
 " Code folding
 " autocmd BufWrite *.* mkview
@@ -59,5 +59,4 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Mustache abbreviations
 let g:mustache_abbreviations = 1
-
 let g:vim_json_syntax_concealcursor = 0
