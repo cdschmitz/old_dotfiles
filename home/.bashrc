@@ -78,7 +78,11 @@ _source /usr/local/bin/virtualenvwrapper.sh
 # Config is slightly different between Mac and Linux.
 os_specific_setup () {
     if [[ $KERNEL = "Linux" ]]; then
-        alias ls="ls -BFlhp --color=auto --group-directories-first"
+        local ls_command="ls -BFlhp --color=auto"
+        if ls --group-directories-first &> /dev/null; then
+            ls_command="${ls_command} --group-directories-first"
+        fi
+        alias ls=${ls_command}
     elif [[ $KERNEL = "Darwin" ]]; then
         alias ls="ls -FGlhp"
     fi
