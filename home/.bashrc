@@ -85,6 +85,14 @@ os_specific_setup () {
         alias ls=${ls_command}
     elif [[ $KERNEL = "Darwin" ]]; then
         alias ls="ls -FGlhp"
+        vcp () {
+            local file="$1"
+            if [[ ! -f $file ]]; then
+                echo "File not found: $file"
+                return 1
+            fi
+            cat $file | pbcopy
+        }
     fi
 }
 os_specific_setup
