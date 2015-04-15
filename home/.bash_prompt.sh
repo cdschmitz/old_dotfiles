@@ -119,7 +119,7 @@ function set_bash_prompt () {
   # Set username.  If on Linux, include hostname.
   local USER="\u"
   local USER_COLOR=$GREEN
-  if [[ $KERNEL = "Linux" ]]; then
+  if [[ $OS = "Linux" ]]; then
       USER="\u@\h"
       USER_COLOR=$LIGHT_RED
   fi

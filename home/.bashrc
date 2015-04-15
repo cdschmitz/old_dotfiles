@@ -24,13 +24,13 @@ function _source () {
 }
 
 export HISTIGNORE="&:cd:ls:gs:s"
-export KERNEL=$(uname -s)
 export LS_COLORS='di=36:ex=31:ln=35:or=41:mi=41:pi=93'
+export OS=$(uname -s)
 export TERM="xterm-color"
 unset COLORFGBG
 
 alias .vim="cd $HOME/.vim"
-alias bashrc="vim $HOME/.bashrc"
+alias b="vim $HOME/.bashrc"
 alias bashrcl="vim $HOME/.bashrc_local"
 alias de="deactivate"
 alias envs="env | sort"
@@ -43,7 +43,7 @@ alias lsa="ls -A"
 alias py="python"
 alias pyserver="python -m SimpleHTTPServer"
 alias s="source $HOME/.bashrc"
-alias vimrc="vim $HOME/.vimrc"
+alias v="vim $HOME/.vimrc"
 
 alias u="cd .."
 alias u2="cd ../.."
@@ -77,13 +77,13 @@ _source /usr/local/bin/virtualenvwrapper.sh
 
 # Config is slightly different between Mac and Linux.
 os_specific_setup () {
-    if [[ $KERNEL = "Linux" ]]; then
+    if [[ $OS = "Linux" ]]; then
         local ls_command="ls -BFlhp --color=auto"
         if ls --group-directories-first &> /dev/null; then
             ls_command="${ls_command} --group-directories-first"
         fi
         alias ls=${ls_command}
-    elif [[ $KERNEL = "Darwin" ]]; then
+    elif [[ $OS = "Darwin" ]]; then
         alias ls="ls -FGlhp"
         vcp () {
             local file="$1"
