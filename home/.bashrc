@@ -31,7 +31,7 @@ unset COLORFGBG
 
 alias .vim="cd $HOME/.vim"
 alias b="vim $HOME/.bashrc"
-alias bashrcl="vim $HOME/.bashrc_local"
+alias bl="vim $HOME/.bashrc_local"
 alias de="deactivate"
 alias envs="env | sort"
 alias freeze="pip freeze"

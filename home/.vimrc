@@ -1,4 +1,6 @@
-execute pathogen#infect()
+if v:version > 700
+    execute pathogen#infect()
+endif
 
 filetype plugin indent on
 filetype indent on
@@ -62,15 +64,11 @@ let g:mustache_abbreviations = 1
 let g:vim_json_syntax_concealcursor = 0
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+command SR SyntasticReset
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["html"]}
+    \ "mode": "passive"}
