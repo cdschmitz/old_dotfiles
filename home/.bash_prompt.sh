@@ -30,6 +30,7 @@
 LIGHT_GREEN="\[\033[1;32m\]"
       WHITE="\[\033[1;37m\]"
  LIGHT_GRAY="\[\033[0;37m\]"
+      BLACK="\[\033[0;30m\]"
  COLOR_NONE="\[\e[0m\]"
 
 # Detect whether the current directory is a git repository.
@@ -126,7 +127,7 @@ function set_bash_prompt () {
 
   # Set the bash prompt variable.
   PS1="
-${PYTHON_VIRTUALENV}${USER_COLOR}${USER} ${YELLOW}\w${COLOR_NONE} ${BRANCH}
+${PYTHON_VIRTUALENV}${USER_COLOR}${USER}${BLACK}:${YELLOW}\w${COLOR_NONE} ${BRANCH}
 ${PROMPT_SYMBOL} "
 }
 
