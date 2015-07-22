@@ -1,2 +1,11 @@
-.vim/view/
-*README*
+# https://github.com/github/gitignore/
+
+# Vim.gitignore
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+README.md
