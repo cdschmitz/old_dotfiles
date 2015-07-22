@@ -44,20 +44,9 @@ map <C-h> <C-w><Left>
 nnoremap <silent> <Tab> :MBEbn<CR>
 nnoremap <silent> <S-Tab> :MBEbp<CR>
 
-" Javascript shortcuts
-autocmd FileType html,javascript inoremap cslg console.log();<Esc>hi
-autocmd FileType html,javascript inoremap db; debugger;
-
 " Code folding
 " autocmd BufWrite *.* mkview
 " autocmd BufRead *.* silent loadview
-
-" Python
-au BufRead,BufNewFile *.py,*pyw set nosmartindent
-" au BufRead,BufNewFile *.py,*.pyw set tabstop=4
-" autocmd FileType python highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-" autocmd FileType python match OverLength /\%>79v.\+/
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Mustache abbreviations
 let g:mustache_abbreviations = 1
@@ -72,3 +61,18 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
     \ "mode": "passive"}
+
+" HTML/Javascript
+autocmd FileType html,htmldjango,javascript,javascript.jsx inoremap cslg console.log();<Esc>hi
+autocmd FileType html,htmldjango,javascript,javascript.jsx inoremap db; debugger;
+autocmd FileType html,htmldjango inoremap dtt {%  %}<Esc>2hi
+autocmd FileType html,htmldjango inoremap dbr {{  }}<Esc>2hi
+
+" Python
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python set nosmartindent
+autocmd FileType python inoremap trq """"<Esc>xYpO
+autocmd FileType python inoremap ipst import ipdb; ipdb.set_trace()<Esc>
+" au BufRead,BufNewFile *.py,*.pyw set tabstop=4
+" autocmd FileType python highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+" autocmd FileType python match OverLength /\%>79v.\+/
