@@ -78,7 +78,7 @@ _source /usr/local/bin/virtualenvwrapper.sh
 # Config is slightly different between Mac and Linux.
 os_specific_setup () {
     if [[ $OS = "Linux" ]]; then
-        local ls_command="ls -BFlhp --color=auto"
+        local ls_command="LC_COLLATE=C ls -BFlhp --color=auto"
         if ls --group-directories-first &> /dev/null; then
             ls_command="${ls_command} --group-directories-first"
         fi
