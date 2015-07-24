@@ -23,6 +23,7 @@ function _source () {
     [[ -f $1 ]] && source $1
 }
 
+export EDITOR=vim
 export HISTIGNORE="&:cd:ls:gs:s"
 export LS_COLORS='di=36:ex=31:ln=35:or=41:mi=41:pi=93'
 export OS=$(uname -s)
