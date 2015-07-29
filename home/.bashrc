@@ -33,16 +33,10 @@ unset COLORFGBG
 alias .vim="cd $HOME/.vim"
 alias b="vim $HOME/.bashrc"
 alias bl="vim $HOME/.bashrc_local"
-alias de="deactivate"
 alias envs="env | sort"
-alias freeze="pip freeze"
 alias h="history"
-alias hs="homeshick"
-alias ipy="ipython"
 alias ls="ls -Flhp"
 alias lsa="ls -A"
-alias py="python"
-alias pyserver="python -m SimpleHTTPServer"
 alias s="source $HOME/.bashrc"
 alias v="vim $HOME/.vimrc"
 
@@ -54,26 +48,29 @@ alias u5="cd ../../../../.."
 
 # Enable autocomplete for Git commands + other aliases.
 _source $HOME/.git-completion.bash
-alias ck="git checkout"
-alias cherry="git cherry -v"
-alias commit="git commit"
-alias log="git log"
-alias logp="git log -p"
-alias logs="git log --stat"
 alias gb="git branch"
 alias gba="git branch -a"
+alias gc="git commit"
+alias gco="git checkout"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias grs="git remote show"
 alias grso="git remote show origin"
 alias gs="git status"
 alias gsl="git stash list"
+alias log="git log"
 
-# Homeshick
+alias hs="homeshick"
+
+alias de="deactivate"
+alias freeze="pip freeze"
+alias pyserver="python -m SimpleHTTPServer"
+
+alias gulp="./node_modules/.bin/gulp"
+
 _source $HOME/.homesick/repos/homeshick/homeshick.sh
 _source $HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash
 
-# virtualenv
 _source /usr/local/bin/virtualenvwrapper.sh
 
 # Config is slightly different between Mac and Linux.
