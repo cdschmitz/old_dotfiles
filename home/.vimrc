@@ -22,6 +22,8 @@ set nohlsearch
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+abbr fn function
+
 command DW %s/\s\+$//g
 command MD5 .!md5 -q %
 command SHA .!shasum -a 256 %
