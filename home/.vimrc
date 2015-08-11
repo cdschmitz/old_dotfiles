@@ -6,17 +6,18 @@ filetype plugin indent on
 filetype indent on
 syntax on
 set number
+set ruler
+set showcmd
+set scrolloff=5
 set history=150
 set backspace=indent,eol,start
-set showcmd
-set ruler
-set scrolloff=5
+set expandtab
 set tabstop=4
 set shiftwidth=4
-set expandtab
-set nohlsearch
-set visualbell
 set t_vb=
+set visualbell
+set incsearch
+set nohlsearch
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
