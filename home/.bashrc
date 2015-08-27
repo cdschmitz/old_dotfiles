@@ -31,6 +31,7 @@ export OS=$(uname -s)
 export TERM="xterm-color"
 unset COLORFGBG
 
+
 alias .vim="cd $HOME/.vim"
 alias b="vim $HOME/.bashrc"
 alias bl="vim $HOME/.bashrc_local"
@@ -70,10 +71,14 @@ alias pyserver="python -m SimpleHTTPServer"
 
 alias gulp="./node_modules/.bin/gulp"
 
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
+
 _source $HOME/.homesick/repos/homeshick/homeshick.sh
 _source $HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash
-
 _source /usr/local/bin/virtualenvwrapper.sh
+
 
 # Config is slightly different between Mac and Linux.
 os_specific_setup () {
